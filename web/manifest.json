@@ -1,6 +1,6 @@
 {
-    "name": "bloc_test",
-    "short_name": "bloc_test",
+    "name": "bloc_test_project",
+    "short_name": "bloc_test_project",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
