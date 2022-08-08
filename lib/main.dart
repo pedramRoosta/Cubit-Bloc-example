@@ -1,7 +1,4 @@
-import 'package:bloc_test_project/home/home_v.dart';
-import 'package:bloc_test_project/home/home_vm.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(
@@ -9,11 +6,16 @@ void main() {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(),
-        body: BlocProvider(
-          create: (context) => HomeViewModel(),
-          child: const HomeScreen(),
-        ),
+        body: const Home(),
       ),
     ),
   );
+}
+
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return const Center(child: Text('apfel'));
+  }
 }
