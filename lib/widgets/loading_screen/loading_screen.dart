@@ -20,6 +20,11 @@ class LoadingScreen {
     }
   }
 
+  void hide() {
+    _controller?.closeLoadingScreen();
+    _controller = null;
+  }
+
   LoadingScreenController _showOverlay({
     required BuildContext context,
     required String text,
