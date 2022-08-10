@@ -22,8 +22,8 @@ class LoginApi implements LoginApiInterface {
     required String email,
     required String password,
   }) {
-    return Future.delayed(const Duration(seconds: 2),
-        () => email == 'qwe' && password == 'qweqwe').then(
+    return Future.delayed(
+        const Duration(seconds: 2), () => email == 'a' && password == 'a').then(
       (isLoggedIn) => isLoggedIn ? const LoginHandle.fooBar() : null,
     );
   }

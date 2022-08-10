@@ -6,7 +6,7 @@ abstract class AppAction {
 }
 
 @immutable
-abstract class LoginAction implements AppAction {
+class LoginAction implements AppAction {
   final String email;
   final String password;
   const LoginAction({
@@ -16,6 +16,6 @@ abstract class LoginAction implements AppAction {
 }
 
 @immutable
-abstract class LoadNoteAction implements AppAction {
+class LoadNoteAction implements AppAction {
   const LoadNoteAction();
 }

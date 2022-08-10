@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 
 @immutable
 class LoginHandle {
@@ -19,6 +19,19 @@ class LoginHandle {
 
 enum LoginErrors {
   invalidHandle,
+}
+
+extension ListViewOnIterable<T> on Iterable<T> {
+  Widget getListView() {
+    return ListView.builder(
+      itemCount: length,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text(elementAt(index).toString()),
+        );
+      },
+    );
+  }
 }
 
 @immutable

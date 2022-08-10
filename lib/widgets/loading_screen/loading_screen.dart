@@ -39,7 +39,7 @@ class LoadingScreen {
     final overlay = OverlayEntry(
       builder: ((context) {
         return Material(
-          color: Colors.black.withOpacity(150),
+          color: Colors.black.withOpacity(0.7),
           child: Center(
             child: Container(
               padding: const EdgeInsets.all(10),
