@@ -1,56 +1,31 @@
-import 'package:bloc_test_project/models/model.dart';
+import 'dart:ffi';
+import 'dart:typed_data';
+
 import 'package:flutter/foundation.dart';
-import 'package:collection/collection.dart';
 
 @immutable
 class AppState {
+  final bool isLoading;
+  final Uint8List? data;
+  final Object? error;
+
   const AppState({
     required this.isLoading,
-    required this.loginError,
-    required this.loginHandle,
-    required this.fetchedNotes,
+    required this.data,
+    required this.error,
   });
+
   const AppState.empty()
       : isLoading = false,
-        loginError = null,
-        loginHandle = null,
-        fetchedNotes = null;
-
-  final bool isLoading;
-  final LoginErrors? loginError;
-  final LoginHandle? loginHandle;
-  final Iterable<Note>? fetchedNotes;
+        data = null,
+        error = null;
 
   @override
-  String toString() => {
-        'isLoading': isLoading,
-        'loginError': loginError,
-        'loginHandle': loginHandle,
-        'fetchedNotes': fetchedNotes,
-      }.toString();
-
-  @override
-  bool operator ==(covariant AppState other) {
-    final others = isLoading == other.isLoading &&
-        loginError == other.loginError &&
-        loginHandle == other.loginHandle;
-    if (fetchedNotes == null && other.fetchedNotes == null) {
-      return others;
-    } else {
-      return others && (fetchedNotes?.isEqualTo(other.fetchedNotes) ?? false);
-    }
+  String toString() {
+    return {
+      'isLoading': isLoading,
+      'hasData': data != null,
+      'error': error,
+    }.toString();
   }
-
-  @override
-  int get hashCode => Object.hash(
-        isLoading,
-        loginError,
-        loginHandle,
-        fetchedNotes,
-      );
-}
-
-extension UnorderedEquality on Object {
-  bool isEqualTo(other) =>
-      const DeepCollectionEquality.unordered().equals(this, other);
 }
